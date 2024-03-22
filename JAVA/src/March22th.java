@@ -1,9 +1,25 @@
+/*
+Copyright (c) 2024 jepetolee
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+*/
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Math;
+import java.util.Arrays;
 
+
+
+//Tip: 무한 루프   for(;;)
 public class March22th {
     public static void main(String[] args) {
-        printDivisor();
+        isTriangleExist();
         return;
     }
     public static void isOddOrEven(){
@@ -146,4 +162,72 @@ public class March22th {
         }
         return;
     }
+
+    public static void wonCounting(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+
+        System.out.println("금액을 넣어주세요");
+
+        int IntegerVariable;
+        IntegerVariable = ScanningInteger.nextInt();
+
+        int[] Moneytypes ={50000,10000,5000,1000,500,100,50,10};
+        String[] MoneyName ={"오만원권","만원권","오천원권","천원권","오백원","백원","오십원","십원"};
+
+        for(int iter =0; iter<8;iter++){
+            System.out.print(MoneyName[iter]);
+            System.out.print(": ");
+            System.out.println(IntegerVariable/ Moneytypes[iter]);
+            IntegerVariable %= Moneytypes[iter];
+        }
+        return;
+    }
+    public static void isTriangleExist(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+
+        System.out.println("삼각형이 존재하는 지 확인해볼 변수 3개를 입력하시오: ");
+
+        int IntegerVariable[]= new int[3];
+        IntegerVariable[0] =ScanningInteger.nextInt();
+        IntegerVariable[1] =ScanningInteger.nextInt();
+        IntegerVariable[2] =ScanningInteger.nextInt();
+
+        Arrays.sort(IntegerVariable);
+        if(IntegerVariable[2]<=IntegerVariable[0]+IntegerVariable[1]){
+            System.out.println("삼각형이 존재합니다.");
+        }
+        else{
+            System.out.println("삼각형이 존재하지 않습니다.");
+        }
+        return;
+    }
+
+   /*
+    과제, 마무리해오기
+   public static void isBoundingBoxTouched(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+
+        System.out.println("삼각형이 존재하는 지 확인해볼 변수 3개를 입력하시오: ");
+
+        int[][][] Boxes= new int[2][2][2];
+
+        for(int indexOfBox =0;iindexOfBox++)
+
+        Arrays.sort(IntegerVariable);
+        if(IntegerVariable[2]<=IntegerVariable[0]+IntegerVariable[1]){
+            System.out.println("삼각형이 존재합니다.");
+        }
+        else{
+            System.out.println("삼각형이 존재하지 않습니다.");
+        }
+        return;
+    }
+
+    */
+
+
+
 }
