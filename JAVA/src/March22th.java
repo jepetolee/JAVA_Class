@@ -13,13 +13,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Math;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 
 
 //Tip: 무한 루프   for(;;)
 public class March22th {
     public static void main(String[] args) {
-        isTriangleExist();
+        primeEnd();
         return;
     }
     public static void isOddOrEven(){
@@ -228,6 +229,241 @@ public class March22th {
 
     */
 
+    public static void printPiramid(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
 
 
+        int IntegerVariable;
+        IntegerVariable =ScanningInteger.nextInt();
+
+        for (int i=1;i<=IntegerVariable;i++){
+            for(int j=IntegerVariable-i;j>0;j--){
+                System.out.print(" ");
+            }
+            for(int j=0;j<2*i-1;j++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+        return;
+    }
+
+    public static void printDiamond(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+
+
+        int IntegerVariable;
+        IntegerVariable =ScanningInteger.nextInt();
+
+        for (int i=1;i<=IntegerVariable;i++){
+            for(int j=IntegerVariable-i;j>0;j--){
+                System.out.print(" ");
+            }
+            for(int j=0;j<2*i-1;j++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+        for (int i=IntegerVariable;i>=1;i--){
+            for(int j=IntegerVariable-i;j>0;j--){
+                System.out.print(" ");
+            }
+            for(int j=0;j<2*i-1;j++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+        return;
+    }
+    public static void leftTriangle(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+        int IntegerVariable;
+        IntegerVariable =ScanningInteger.nextInt();
+
+        for (int i=IntegerVariable;i>=1;i--){
+
+            for(int j=0;j<i;j++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+        return;
+    }
+
+    public static void Pascals_Triangle(){ // need to fix some algorithm
+
+        Scanner ScanningInteger = new Scanner(System.in);
+        int IntegerVariable;
+        IntegerVariable =ScanningInteger.nextInt();
+
+        int number = 11,cumul_number=1;
+        for (int i=1;i<=IntegerVariable;i++){
+            for(int j=IntegerVariable-i;j>0;j--){
+                System.out.print(" ");
+            }
+            int temp =cumul_number;
+            while (temp!=0){
+
+                System.out.print(temp%10+" ");
+                temp /=10;
+            }
+            System.out.println("");
+            cumul_number *= number;
+
+        }
+        return;
+    }
+
+    public static void numberAnswering(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+        int RandomVariable = (int)(Math.random()*1000000);
+
+        for (;;){
+            int GuessVariable;
+            GuessVariable =ScanningInteger.nextInt();
+            if (GuessVariable < RandomVariable){
+                System.out.println("크기가 더 큽니다.");
+            }
+            else if (GuessVariable > RandomVariable){
+                System.out.println("크기가 더 작습니다.");
+            }
+            else{
+                System.out.println("정답.");
+                return;
+            }
+        }
+
+    }
+    public static void compareAndPrintSameNumbers(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+        int[][] ArraysToPrint = new int[3][10];
+
+
+        for(int priorArraysIndex=0; priorArraysIndex<2;priorArraysIndex++){
+            for (int arrayIndex=0;arrayIndex<10;arrayIndex++){
+                ArraysToPrint[priorArraysIndex][arrayIndex] = ScanningInteger.nextInt();
+            }
+            Arrays.sort(ArraysToPrint[priorArraysIndex]);
+        }
+        int countOfSameNumber=0,searchedNumber1=0,searchedNumber2=0;
+        while(searchedNumber1 <10&&searchedNumber2<10){
+            if(ArraysToPrint[0][searchedNumber1]==ArraysToPrint[1][searchedNumber2]){
+                ArraysToPrint[2][countOfSameNumber++] = ArraysToPrint[0][searchedNumber1];
+                searchedNumber1++;
+                searchedNumber2++;
+            }
+            else if(ArraysToPrint[0][searchedNumber1]<ArraysToPrint[1][searchedNumber2]){
+                searchedNumber1++;
+            }
+            else{
+                searchedNumber2++;
+            }
+        }
+        for (int arrayIndex=0;arrayIndex<countOfSameNumber;arrayIndex++){
+            System.out.println(ArraysToPrint[2][arrayIndex]);
+        }
+    }
+    public static void matricesAddition(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+        int[][][] ArraysToPrint = new int[3][2][2];
+
+        for(int priorArraysIndex=0; priorArraysIndex<2;priorArraysIndex++){
+            for (int rowIndex=0;rowIndex<2;rowIndex++){
+                for(int columnIndex=0; columnIndex<2;columnIndex++){
+                    ArraysToPrint[priorArraysIndex][rowIndex][columnIndex] = ScanningInteger.nextInt();
+                }
+            }
+            for (int rowIndex=0;rowIndex<2;rowIndex++){
+                for(int columnIndex=0; columnIndex<2;columnIndex++){
+                    ArraysToPrint[2][rowIndex][columnIndex] = ArraysToPrint[1][rowIndex][columnIndex] +ArraysToPrint[0][rowIndex][columnIndex]  ;
+                }
+            }
+            Arrays.sort(ArraysToPrint[priorArraysIndex]);
+        }
+    }
+
+    public static void tripleMatrixRotation(){
+
+        Scanner ScanningInteger = new Scanner(System.in);
+        int[][][] ArraysToPrint = new int[2][3][3];
+
+        for (int rowIndex=0;rowIndex<3;rowIndex++){
+            for(int columnIndex=0; columnIndex<3;columnIndex++){
+                ArraysToPrint[0][rowIndex][columnIndex] = ScanningInteger.nextInt();
+            }
+        }
+
+            ArraysToPrint[1][0][0] = ArraysToPrint[0][1][0];
+            ArraysToPrint[1][1][0] = ArraysToPrint[0][2][0];
+            ArraysToPrint[1][2][0] = ArraysToPrint[0][2][1];
+            ArraysToPrint[1][2][1] = ArraysToPrint[0][2][2];
+            ArraysToPrint[1][2][2] = ArraysToPrint[0][1][2];
+            ArraysToPrint[1][1][2] = ArraysToPrint[0][0][2];
+            ArraysToPrint[1][0][2] = ArraysToPrint[0][0][1];
+            ArraysToPrint[1][0][1] = ArraysToPrint[0][0][0];
+
+            ArraysToPrint[1][1][1] = ArraysToPrint[0][1][1];
+
+        for (int rowIndex=0;rowIndex<3;rowIndex++){
+            for(int columnIndex=0; columnIndex<3;columnIndex++){
+                System.out.print(ArraysToPrint[1][rowIndex][columnIndex]+" ");
+            }
+            System.out.println(" ");
+        }
+    }
+    public static void primeEnd(){
+        ArrayList<Integer> List = new ArrayList();
+        Scanner ScanningInteger = new Scanner(System.in);
+
+        System.out.println("아무 정수나 넣어보세요");
+        int IntegerVariable;
+        IntegerVariable = ScanningInteger.nextInt();
+
+
+        Double DoubleVersionOfInt = Double.valueOf(IntegerVariable);
+        Double RootOfInt = Math.sqrt(DoubleVersionOfInt);
+
+
+        for (int iter=1;iter<=RootOfInt;iter++){
+            if (IntegerVariable%iter==0){
+                if (iter == IntegerVariable/iter){
+                    List.add(iter);
+                }
+                else{
+                    List.add(iter);
+                    List.add(IntegerVariable/iter);
+                }
+            }
+        }
+
+        System.out.println(List+" 총 "+List.size()+"개");
+        for (int iteration=0;iteration<List.size();iteration++){
+            System.out.print(List.get(iteration)+", ");
+            boolean isPrime =false;
+            for (int iter=2;iter<List.get(iteration);iter++){
+                if (List.get(iteration)%iter==0){
+                    System.out.println("소수가 아님.");
+                    isPrime=true;
+                    break;
+                } else if (iteration==0) {
+                    System.out.println("소수가 아님.");
+                    isPrime=true;
+                    break;
+                }
+            }
+            if (isPrime==false){
+                System.out.println("소수임.");
+            }
+
+        }
+
+    }
 }
+
+
