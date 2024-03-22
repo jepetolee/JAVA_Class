@@ -15,15 +15,3 @@ public class App {
 
     }
 }
-
-/*
-       Scanner ScanningInteger = new Scanner(System.in);
-
-        System.out.println("아무 정수나 넣어보세요");
-
-        int IntegerVariable;
-        IntegerVariable = ScanningInteger.nextInt();
-        if (IntegerVariable %2 ==0)
-            System.out.println("짝수");
-        else
-            System.out.println("짝수"); */
